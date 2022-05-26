@@ -9,6 +9,7 @@ form = cgi.FieldStorage()
 user_name   = form.getvalue("name", "TestName")
 user_univ   = form.getvalue("university", "TestUniv")
 user_email  = form.getvalue("email", "TestEmail")
+user_num    = form.getvalue("num", 0)
 
 current_dir = os. getcwd()
 current_dir = current_dir + "\CGI"
@@ -46,10 +47,10 @@ print(f"<br>Значение 3 байтов после смещения: {data[2
 f_binary.close()
 
 try:
-    c=12
+    c=int(user_num)
     assert helper.isPrime(c)
-    print ( 'Число простое ' + c)
+    print ( 'Число простое ' + str (c))
 except ZeroDivisionError:
     print ( 'Ошибка: деление на 0' )
 except AssertionError:
-    print ( 'Число не простое ' + c)
+    print ( 'Число не простое ' + str (c))
